@@ -6,18 +6,33 @@
 //
 
 import Foundation
-import Combine
+import CoreData
 
 class StatisticDataService {
     
-    @Published var statistics : [ProductModel] = []
+    private let container: NSPersistentContainer
+    private let containerName: String = "StatisticsConteiner"
+    private let entityName: String = "StatisticsEntity"
+    
+    
+    @Published var statistics: [StatisticsEntity] = []
     
     init() {
-        getProducts()
+        container = NSPersistentContainer(name: containerName)
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                print("Error loading Core Data! \(error)")
+            }
+            self.getStatistics()
+        }
     }
     
-    private func getProducts() {
-        
-       
+    private func getStatistics() {
+        let request = NSFetchRequest<StatisticsEntity>(entityName: entityName)
+        do {
+            statistics = try container.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetching Portfolio Entities. \(error)")
+        }
     }
 }

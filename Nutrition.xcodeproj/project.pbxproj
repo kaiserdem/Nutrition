@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		752378982A15128700FECADD /* StatisticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752378972A15128700FECADD /* StatisticDataService.swift */; };
+		7523789B2A151B0400FECADD /* StatisticsConteiner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 752378992A151B0400FECADD /* StatisticsConteiner.xcdatamodeld */; };
 		75AB1C592A05474E0034F590 /* NutritionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB1C582A05474E0034F590 /* NutritionApp.swift */; };
 		75AB1C5B2A05474E0034F590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB1C5A2A05474E0034F590 /* ContentView.swift */; };
 		75AB1C5D2A0547510034F590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AB1C5C2A0547510034F590 /* Assets.xcassets */; };
 		75AB1C602A0547510034F590 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AB1C5F2A0547510034F590 /* Preview Assets.xcassets */; };
 		75AB1C682A05499A0034F590 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB1C672A05499A0034F590 /* HomeView.swift */; };
+		75CE545A2A196067006CADBC /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE54592A196067006CADBC /* ParametersView.swift */; };
 		75E387D82A054F95000622D5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E387D72A054F95000622D5 /* HomeViewModel.swift */; };
 		75E387DA2A054FE9000622D5 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E387D92A054FE9000622D5 /* StatisticModel.swift */; };
 		75E387DC2A0551DF000622D5 /* NutritionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E387DB2A0551DF000622D5 /* NutritionDataModel.swift */; };
@@ -30,12 +32,14 @@
 
 /* Begin PBXFileReference section */
 		752378972A15128700FECADD /* StatisticDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDataService.swift; sourceTree = "<group>"; };
+		7523789A2A151B0400FECADD /* StatisticsConteiner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StatisticsConteiner.xcdatamodel; sourceTree = "<group>"; };
 		75AB1C552A05474D0034F590 /* Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AB1C582A05474E0034F590 /* NutritionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionApp.swift; sourceTree = "<group>"; };
 		75AB1C5A2A05474E0034F590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		75AB1C5C2A0547510034F590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75AB1C5F2A0547510034F590 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75AB1C672A05499A0034F590 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		75CE54592A196067006CADBC /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
 		75E387D72A054F95000622D5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		75E387D92A054FE9000622D5 /* StatisticModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
 		75E387DB2A0551DF000622D5 /* NutritionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDataModel.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				75E387E12A0554E4000622D5 /* StatisticView.swift */,
 				75E387E62A0670C8000622D5 /* CircleButtonAnimationView.swift */,
 				75E387EE2A06A305000622D5 /* ProductRowView.swift */,
+				75CE54592A196067006CADBC /* ParametersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 				75E387D92A054FE9000622D5 /* StatisticModel.swift */,
 				75E387DB2A0551DF000622D5 /* NutritionDataModel.swift */,
 				75E387EC2A069BF0000622D5 /* ProductModel.swift */,
+				752378992A151B0400FECADD /* StatisticsConteiner.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 				75AB1C682A05499A0034F590 /* HomeView.swift in Sources */,
 				75E387DC2A0551DF000622D5 /* NutritionDataModel.swift in Sources */,
 				752378982A15128700FECADD /* StatisticDataService.swift in Sources */,
+				75CE545A2A196067006CADBC /* ParametersView.swift in Sources */,
 				75E387F12A06B058000622D5 /* ProductDataService.swift in Sources */,
 				75AB1C5B2A05474E0034F590 /* ContentView.swift in Sources */,
 				75E387ED2A069BF0000622D5 /* ProductModel.swift in Sources */,
+				7523789B2A151B0400FECADD /* StatisticsConteiner.xcdatamodeld in Sources */,
 				75E387E92A0684AF000622D5 /* Color.swift in Sources */,
 				75E387DE2A0553E3000622D5 /* HomeStatsView.swift in Sources */,
 				75E387E02A055452000622D5 /* PreviewProvider.swift in Sources */,
@@ -471,6 +479,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		752378992A151B0400FECADD /* StatisticsConteiner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7523789A2A151B0400FECADD /* StatisticsConteiner.xcdatamodel */,
+			);
+			currentVersion = 7523789A2A151B0400FECADD /* StatisticsConteiner.xcdatamodel */;
+			path = StatisticsConteiner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 75AB1C4D2A05474D0034F590 /* Project object */;
 }

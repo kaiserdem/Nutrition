@@ -10,23 +10,40 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var showPortfolio: Bool = false
-    @State private var showPortfolioView: Bool = false
+    @State private var showAddMeal: Bool = false
+    @State private var showSetParameters: Bool = false
+    @State private var showAddMealView: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack {
+            ZStack {
+                Color.white
+                .sheet(isPresented: $showSetParameters, content:  {
+                    ParametersView()
+                })
+                
+                VStack {
                     homeHeader
-                if !showPortfolio {
-                    HomeStatsView(showPortfolio: $showPortfolio)
-                } else {
-                    SearchBarView(searchText: $vm.searchText)
-                    allCoinsList
-                        .transition(.move(edge: .leading))
-                }
+                    if !showAddMeal {
+                        HomeStatsView(showPortfolio: $showAddMeal)
+                        Spacer(minLength: 10)
+                        
+                        Button(action: {
+                            
+                            showSetParameters.toggle()
+                            
+                        }) {
+                            Text("Set statisic")
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.theme.primary)
+                        }
+                    } else {
+                        SearchBarView(searchText: $vm.searchText)
+                        allCoinsList
+                            .transition(.move(edge: .leading))
+                    }
                     Spacer(minLength: 0)
+                }
             }
-        }
     }
 }
 
@@ -44,31 +61,34 @@ extension HomeView {
 
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: showPortfolio ? "plus" : "plus")
+            CircleButtonView(iconName: showAddMeal ? "plus" : "plus")
                 //.animation(.none)
                 .onTapGesture {
-//                    if showPortfolio {
-//                        showPortfolioView.toggle()
-//                    }
+                    print("showAddMeal: \(showAddMeal)")
+                    print("showAddMealView: \(showAddMealView)")
+
+                    if showAddMeal {
+                        showAddMealView.toggle()
+                    }
                     withAnimation(.spring()) {
-                        showPortfolio.toggle()
+                        showAddMeal.toggle()
                     }
                 }
                 .background(
-                    CircleButtonAnimationView(animate: $showPortfolio)
+                    CircleButtonAnimationView(animate: $showAddMeal)
                 )
             Spacer()
-            Text(showPortfolio ? "Add a meal" : "Today")
+            Text(showAddMeal ? "Add a meal" : "Today")
                 .font(.title)
                 .fontWeight(.heavy)
                 .foregroundColor(Color.theme.primary)
                 .animation(.none)
             Spacer()
             CircleButtonView(iconName: "chevron.right")
-                .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
+                .rotationEffect(Angle(degrees: showAddMeal ? 180 : 0))
                 .onTapGesture {
                     withAnimation(.spring()) {
-                        showPortfolio.toggle()
+                        showAddMeal.toggle()
                     }
                 }
         }
@@ -85,29 +105,4 @@ extension HomeView {
         .listStyle(PlainListStyle())
     }
 
-//    private var portfolioCoinsList: some View {
-//        List {
-//            ForEach(vm.portfolioCoins) { coin in
-//                CoinRowView(coin: coin, showHoldingsColumn: true)
-//                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-//            }
-//        }
-//        .listStyle(PlainListStyle())
-//    }
-    
-//    private var columnTitles: some View {
-//        HStack {
-//            Text("Coin")
-//            Spacer()
-//            if showPortfolio {
-//                Text("Holdigs")
-//            }
-//            Text("Prices")
-//                .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
-//        }
-//        .font(.caption)
-//        .foregroundColor(Color.theme.accent)
-//        .padding(.horizontal)
-//    }
-    
 }
