@@ -8,5 +8,8 @@
 import Foundation
 
 struct NutritionDataModel: Codable {
-    let normCalories, currentCalories, remainderCalories, other: Double
+    let normCalories: Double
+    let currentCalories: Double
+    var remainderCalories: Double
+    let other: Double
 }

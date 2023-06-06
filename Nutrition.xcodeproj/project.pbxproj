@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		752378982A15128700FECADD /* StatisticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752378972A15128700FECADD /* StatisticDataService.swift */; };
 		7523789B2A151B0400FECADD /* StatisticsConteiner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 752378992A151B0400FECADD /* StatisticsConteiner.xcdatamodeld */; };
+		755ECE552A1E5F6C004CB53D /* ParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755ECE542A1E5F6C004CB53D /* ParametersViewModel.swift */; };
+		755ECE572A1E615E004CB53D /* ParametersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755ECE562A1E615E004CB53D /* ParametersModel.swift */; };
 		75AB1C592A05474E0034F590 /* NutritionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB1C582A05474E0034F590 /* NutritionApp.swift */; };
 		75AB1C5B2A05474E0034F590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB1C5A2A05474E0034F590 /* ContentView.swift */; };
 		75AB1C5D2A0547510034F590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AB1C5C2A0547510034F590 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		752378972A15128700FECADD /* StatisticDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticDataService.swift; sourceTree = "<group>"; };
 		7523789A2A151B0400FECADD /* StatisticsConteiner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StatisticsConteiner.xcdatamodel; sourceTree = "<group>"; };
+		755ECE542A1E5F6C004CB53D /* ParametersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewModel.swift; sourceTree = "<group>"; };
+		755ECE562A1E615E004CB53D /* ParametersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersModel.swift; sourceTree = "<group>"; };
 		75AB1C552A05474D0034F590 /* Nutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AB1C582A05474E0034F590 /* NutritionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionApp.swift; sourceTree = "<group>"; };
 		75AB1C5A2A05474E0034F590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				75E387D72A054F95000622D5 /* HomeViewModel.swift */,
+				755ECE542A1E5F6C004CB53D /* ParametersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			children = (
 				75E387D92A054FE9000622D5 /* StatisticModel.swift */,
 				75E387DB2A0551DF000622D5 /* NutritionDataModel.swift */,
+				755ECE562A1E615E004CB53D /* ParametersModel.swift */,
 				75E387EC2A069BF0000622D5 /* ProductModel.swift */,
 				752378992A151B0400FECADD /* StatisticsConteiner.xcdatamodeld */,
 			);
@@ -272,6 +278,8 @@
 				7523789B2A151B0400FECADD /* StatisticsConteiner.xcdatamodeld in Sources */,
 				75E387E92A0684AF000622D5 /* Color.swift in Sources */,
 				75E387DE2A0553E3000622D5 /* HomeStatsView.swift in Sources */,
+				755ECE552A1E5F6C004CB53D /* ParametersViewModel.swift in Sources */,
+				755ECE572A1E615E004CB53D /* ParametersModel.swift in Sources */,
 				75E387E02A055452000622D5 /* PreviewProvider.swift in Sources */,
 				75AB1C592A05474E0034F590 /* NutritionApp.swift in Sources */,
 				75E387EF2A06A305000622D5 /* ProductRowView.swift in Sources */,

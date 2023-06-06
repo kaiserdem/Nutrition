@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var filterProducts: [ProductModel] = []
     @Published var searchText: String = ""
 
+    private let statisticDataService = StatisticDataService()
     private let productDataService = ProductDataService()
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,8 +24,20 @@ class HomeViewModel: ObservableObject {
     }
 
     func addSubscribers() {
-                
-        ststistics = mapGlobalMarketData(marketDataModel: NutritionDataModel(normCalories: 2000, currentCalories: 1500, remainderCalories: 500, other: 43432))
+        
+        guard let totalRatio = statisticDataService.totalStatistics.first else { return }
+        
+        let dayCalories = statisticDataService.dayStatistics.first?.calories ?? 0.0
+        
+
+        let normCalories = totalRatio.calories
+        let currentCalories = dayCalories
+        let remainderCalories = totalRatio.calories - currentCalories
+        
+        ststistics = mapGlobalMarketData(marketDataModel: NutritionDataModel(normCalories: normCalories,
+                                                                             currentCalories: currentCalories,
+                                                                             remainderCalories: remainderCalories,
+                                                                             other: 43432))
         
         $searchText
             .combineLatest(productDataService.$allProducts)
@@ -121,4 +134,45 @@ class HomeViewModel: ObservableObject {
         ])
         return stats
     }
+    
+    
+    func updateTotalFPCRatio(_ ratio: FPCRatio) {
+        statisticDataService.updateTotalFPCRatio(ratio)
+    }
+    
+    func updateMyParameters(_ parameters: MyParametersModel) {
+        statisticDataService.updateMyParameters(parameters)
+    }
+    
+    
+    /// Расчет калорийности по формуле Миффлина-Сан Жеора,
+    /// ```
+    /// Для женщин: (10 х вес в кг) + (6,25 х рост в см) – (5 х возраст в г) – 161
+    /// Для мужчин: (10 х вес в кг) + (6,25 х рост в см) – (5 х возраст в г) + 5
+    /// ```
+    
+    func calculateCalories(_ parameters: ParametersModel) -> CGFloat {
+        
+        print(parameters)
+        let a = 10 * parameters.weight
+        let b = 6.25 * parameters.height
+        let c = 5 * parameters.age
+        
+        let result: CGFloat = a + b - c
+        
+        return parameters.gender == .man ? result + 5 : result - 161
+    }
+    
+    func calulateFPC(_ calories: CGFloat) -> FPC {
+        let fat = (0.3 * calories) / 9
+        let protein = (0.3 * calories) / 4
+        let carbohydrates = (0.4 * calories) / 4
+        return FPC(fat: fat, protein: protein, carbohydrates: carbohydrates)
+    }
+}
+
+struct FPC {
+    let fat: CGFloat
+    let protein: CGFloat
+    let carbohydrates: CGFloat
 }

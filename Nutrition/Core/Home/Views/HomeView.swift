@@ -18,7 +18,7 @@ struct HomeView: View {
             ZStack {
                 Color.white
                 .sheet(isPresented: $showSetParameters, content:  {
-                    ParametersView()
+                    ParametersView(isPresented: $showAddMealView)
                 })
                 
                 VStack {
