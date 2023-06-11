@@ -14,8 +14,8 @@
             filePath = "Nutrition/Core/Home/Views/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "homeHeader"
             landmarkType = "24">
          </BreakpointContent>
@@ -23,81 +23,177 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3DDC20C0-841F-49B6-96A5-FD215BE69A83"
-            shouldBeEnabled = "Yes"
+            uuid = "7F32BDFA-43F2-43C6-80FA-383F0D3D538C"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/Views/ParametersView.swift"
+            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "filter(text:products:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6EEF895-EC04-4283-ABBA-FB990AF3B215"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/Views/ParametersView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F277D397-E395-4DD2-B4EE-EA51DF280C21"
+            uuid = "0080A360-CAD7-4CB4-83B9-505E9F83B070"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nutrition/Services/StatisticDataService.swift"
+            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "getTotalStatistics()"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "filter(text:products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6C6FEAD1-0631-42C9-97DD-0C2B52FC329D"
+            uuid = "48EA0901-28F4-47F9-A20C-D789CF493078"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nutrition/Services/StatisticDataService.swift"
+            filePath = "Nutrition/Core/Home/Views/NewProductView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "updateTotalFPCRatio(_:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C19FF7D4-A0F7-4C4B-BFBD-2C139D5BAA68"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Services/ProductDataService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getMyProducts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F11101DA-7D51-4DC3-A48B-2A4C77446E0B"
+            uuid = "0071D99E-2815-420D-A8F7-89489633DD12"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nutrition/Services/StatisticDataService.swift"
+            filePath = "Nutrition/Core/Home/Views/HomeStatsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "add(ratio:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "setExtraValue(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0071D99E-2815-420D-A8F7-89489633DD12 - 82a95bed115d624f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Nutrition.HomeStatsView.setExtraValue(Nutrition.StatisticModel) -&gt; Swift.Double"
+                  moduleName = "Nutrition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/Views/HomeStatsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "0071D99E-2815-420D-A8F7-89489633DD12 - a53f4ed00f611761"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Nutrition.StatisticModel) -&gt; Swift.Bool in Nutrition.HomeStatsView.setExtraValue(Nutrition.StatisticModel) -&gt; Swift.Double"
+                  moduleName = "Nutrition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/Views/HomeStatsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "836BF003-101E-476B-8707-905406E6BE51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Core/Home/Views/StatisticView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C1A3486-DD22-446B-A4B3-F61D045FFBAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Core/Home/Views/StatisticView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "3C1A3486-DD22-446B-A4B3-F61D045FFBAB - 9f090654e68b16bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0&gt;)&gt; in Nutrition.StatisticView.body.getter : some"
+                  moduleName = "Nutrition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/Views/StatisticView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1408">
+               </Location>
+               <Location
+                  uuid = "3C1A3486-DD22-446B-A4B3-F61D045FFBAB - c2b304081da26b7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.rotationEffect(_: SwiftUI.Angle, anchor: SwiftUI.UnitPoint) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.opacity(Swift.Double) -&gt; some&gt;&gt;.0&gt;)&gt; in Nutrition.StatisticView.body.getter : some"
+                  moduleName = "Nutrition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/Views/StatisticView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

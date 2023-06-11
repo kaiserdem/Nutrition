@@ -82,7 +82,7 @@ struct ParametersView: View {
                     
                     guard let weight = NumberFormatter().number(from: selectedWeight) else { return }
                     
-                    let calories = vm.calculateCalories(ParametersModel(gender: selectedGender,
+                    let calories = vm.calculateCalories(Parameters(gender: selectedGender,
                                                                         activity: selectedActivity,
                                                                         height: CGFloat(selectedHeight!),
                                                                         age: CGFloat(selectedAge!),
@@ -105,9 +105,7 @@ struct ParametersView: View {
                                                             weight: CGFloat(truncating: weight),
                                                             goal: selectedGoal.title))
                     
-                    
-                    print("save")
-                    
+                                    
                     isPresented = false
 
 

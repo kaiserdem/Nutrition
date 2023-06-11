@@ -15,20 +15,26 @@ class StatisticDataService {
     private let myParametersEntityName: String = "MyParameters"
     private let totalStatisticEntityName: String = "TotalStatistics"
     private let dayStatisticEntityName: String = "DayStatistics"
-    
+    private let daysProductsEntityName: String = "DaysProducts"
+
     @Published var myParameters: [MyParameters] = []
     @Published var totalStatistics: [TotalStatistics] = []
     @Published var dayStatistics: [DayStatistics] = []
+    @Published var daysProducts: [DaysProducts] = []
 
     init() {
         container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores { _, error in
+            
             if let error = error {
                 print("Error loading Core Data! \(error)")
             }
+            
             self.getMyParameters()
             self.getTotalStatistics()
             self.getDayStatistics()
+            self.getDaysProducts()
+
         }
     }
     
@@ -36,8 +42,8 @@ class StatisticDataService {
 
     private func getMyParameters() {
         let request = NSFetchRequest<MyParameters>(entityName: myParametersEntityName)
+        
         do {
-
             myParameters = try container.viewContext.fetch(request)
         } catch let error {
             print("Error fetching My Parameters Entities. \(error)")
@@ -46,6 +52,7 @@ class StatisticDataService {
     
     private func getDayStatistics() {
         let request = NSFetchRequest<DayStatistics>(entityName: dayStatisticEntityName)
+        
         do {
             dayStatistics = try container.viewContext.fetch(request)
         } catch let error {
@@ -55,6 +62,7 @@ class StatisticDataService {
     
     private func getTotalStatistics() {
         let request = NSFetchRequest<TotalStatistics>(entityName: totalStatisticEntityName)
+        
         do {
             totalStatistics = try container.viewContext.fetch(request)
         } catch let error {
@@ -62,12 +70,45 @@ class StatisticDataService {
         }
     }
     
-    //problem with retrieving or writing statistics
-    
+    private func getDaysProducts() {
+        daysProducts.removeAll()
+        
+        let request = NSFetchRequest<DaysProducts>(entityName: daysProductsEntityName)
+        
+        do {
+
+            let allTimesProducts = try container.viewContext.fetch(request)
+            //print(allTimesProducts.count)
+            
+            allTimesProducts.forEach {
+                
+                let dateString: String = $0.date!.toString(dateFormat: "yyyy-MM-dd")
+                //print(dateString)
+                
+                let today = Date().toString(dateFormat: "yyyy-MM-dd")
+                //print(today)
+                
+                
+                if dateString == today {
+                    daysProducts.append($0)
+                }
+                
+                
+                
+                //print($0.id, $0.gram, $0.date)
+            }
+            
+            //print(daysProducts.count)
+
+        } catch let error {
+            print("Error fetching Days Products Entities. \(error)")
+        }
+    }
+        
     
     // MARK: - Update data
     
-    func updateTotalFPCRatio(_ total: FPCRatio) {
+    func updateTotalRatioFPC(_ total: FPCRatio) {
         
         if let oldStatistics = totalStatistics.first {
             removeTotalStatistics(oldStatistics)
@@ -76,10 +117,10 @@ class StatisticDataService {
     }
     
     
-    func updateDayFPCRatio(_ day: FPCRatio) {
+    func updateDayRatioFPC(_ day: FPCRatio) {
         
-        if let oldStatistics = totalStatistics.first {
-            removeTotalStatistics(oldStatistics)
+        if let oldStatistics = dayStatistics.first {
+            removeDayStatistics(oldStatistics)
         }
         add(ratio: day)
     }
@@ -91,6 +132,11 @@ class StatisticDataService {
         }
         add(parameters: parameters)
     }
+    
+    func updateDaysProducts(_ product: DaysProductsModel) {
+        add(daysProducts: product)
+    }
+    
     
     /// for adding TotalStatistics and DayStatistics
     private func add(ratio: FPCRatio) {
@@ -113,6 +159,14 @@ class StatisticDataService {
         applyChanges()
     }
     
+    private func add(daysProducts: DaysProductsModel) {
+        let entity = DaysProducts(context: container.viewContext)
+        entity.date = daysProducts.date
+        entity.gram = daysProducts.gram
+        entity.productId = daysProducts.productId
+        entity.name = daysProducts.name
+        applyChanges()
+    }
     
     
     private func removeTotalStatistics(_ entity: TotalStatistics) {
@@ -130,6 +184,22 @@ class StatisticDataService {
         applyChanges()
     }
     
+    func deleteAllData(_ entity: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try container.viewContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                container.viewContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+        
+        applyChanges()
+    }
+    
     private func save() {
         do {
             try container.viewContext.save()
@@ -143,5 +213,28 @@ class StatisticDataService {
         getDayStatistics()
         getMyParameters()
         getTotalStatistics()
+        getDaysProducts()
     }
+}
+
+extension DateFormatter {
+    convenience init(dateFormat: String, timeZoneUTC: Bool = false) {
+        self.init()
+        self.dateFormat = dateFormat
+        if timeZoneUTC {
+            self.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        }
+    }
+}
+
+
+extension Date
+{
+    func toString( dateFormat format  : String ) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+
 }

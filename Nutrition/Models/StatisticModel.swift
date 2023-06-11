@@ -8,7 +8,6 @@
 import Foundation
 
 struct StatisticModel: Identifiable {
-    
     let id = UUID().uuidString
     let title: String
     let value: String
@@ -22,7 +21,6 @@ struct StatisticModel: Identifiable {
 }
 
 struct FPCRatio: Identifiable {
-    
     let id = UUID().uuidString
     let calories: Double
     let protein: Double
@@ -35,5 +33,20 @@ struct FPCRatio: Identifiable {
         self.fat = fat
         self.carbohydrates = carbohydrates
 
+    }
+}
+
+struct DaysProductsModel: Identifiable {
+    let id = UUID().uuidString
+    let productId: String
+    let gram: Double
+    let date: Date
+    let name: String
+   
+    init(productId: String, gram: Double, date: Date, name: String) {
+        self.gram = gram
+        self.date = date
+        self.productId = productId
+        self.name = name
     }
 }

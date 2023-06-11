@@ -68,7 +68,7 @@ enum Goal: CaseIterable {
     }
 }
 
-struct ParametersModel {
+struct Parameters {
     let gender: Gender
     let activity: Activity
     let height: CGFloat
