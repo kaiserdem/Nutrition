@@ -10,9 +10,6 @@ import Foundation
 struct ProductModel: Identifiable, Codable {
     let id = UUID().uuidString
     let name: String
-    let calories, protein, fat, carbohydrates: Double
+    let carbohydrates, protein, fat, calories: Double
     let type: String
 }
-
-
-

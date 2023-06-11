@@ -25,6 +25,6 @@ class DeveloperPreview {
     let state2 = StatisticModel(title: "Total Value", value: "$1.23Tr")
     let state3 = StatisticModel(title: "Portfolio Value", value: "$50.4k", percentageChange: -12.34)
     
-    let product = ProductModel(name: "Арахис", calories: 26.2, protein: 45.3, fat: 9.9, carbohydrates: 555, type: "")
+    let product = ProductModel(name: "Арахис", carbohydrates: 26.2, protein: 45.3, fat: 9.9, calories: 555, type: "")
 }
 

@@ -13,13 +13,15 @@ struct ProductRowView: View {
     let product: ProductModel
     
     var body: some View {
-        HStack(spacing: 0) {
-            leftColumn
-            Spacer()
-//            if showHoldingsColumn { centerColumn }
-//            rightColumn
+        NavigationLink(destination: AddProductView(product: product)) {
+            HStack(spacing: 0) {
+                leftColumn
+                Spacer()
+    //            if showHoldingsColumn { centerColumn }
+    //            rightColumn
+            }
+            .font(.subheadline)
         }
-        .font(.subheadline)
     }
 }
 
@@ -48,28 +50,9 @@ extension ProductRowView {
                 .font(.caption)
                 .foregroundColor(Color.gray)
                 .frame(minWidth: 30)
+                .padding(.leading, 6)
+
             
         }
     }
-    
-//    private var centerColumn: some View {
-//        VStack(alignment: .trailing) {
-//            Text(coin.currentHoldingsValue.asCurrencyWith2Democals())
-//                .bold()
-//            Text((coin.currentHoldings ?? 0.0).asNumberString())
-//        }
-//        .foregroundColor(Color.theme.accent)
-//    }
-//
-//    private var rightColumn: some View {
-//        VStack(alignment: .trailing) {
-//            Text(coin.currentPrice.asCurrencyWith6Democals())
-//                .bold()
-//                .foregroundColor(Color.theme.accent)
-//            Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
-//                .foregroundColor((coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red)
-//
-//        }
-//        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
-//    }
 }

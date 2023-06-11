@@ -26,21 +26,20 @@ struct SearchBarView: View {
                     .foregroundColor(Color.theme.primaryLite)
                     .opacity(searchText.isEmpty ? 0.0 : 1.0)
                     .onTapGesture {
-                        //UIApplication.shared.endEditing()
                         searchText = ""
                     }
-                , alignment: .trailing
-                
-                )
+                , alignment: .trailing)
+            
         }
+        
         .font(.headline)
         .padding()
         .background(
         RoundedRectangle(cornerRadius: 25)
             .fill(Color.theme.primary)
-            .shadow(color: Color.theme.gray.opacity(0.15),
-                    radius: 10)
-        ).padding()
+            .shadow(color: Color.theme.gray.opacity(0.15), radius: 10)
+        )
+        .padding()
     }
 }
 
