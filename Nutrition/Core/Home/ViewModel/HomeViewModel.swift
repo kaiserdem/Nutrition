@@ -12,11 +12,10 @@ class HomeViewModel: ObservableObject {
     
     @Published var ststistics: [StatisticModel] = []
     @Published var allProducts: [ProductModel] = []
-    @Published var allProductsTodayModel: [ProductModel] = []
+    @Published var allProductsToday: [EatenProduct] = []
+    @Published var dayProductsWithData: [(ProductModel, DaysProductsModel)] = []
     @Published var filterProducts: [ProductModel] = []
     @Published var myParameters: [MyParametersModel] = []
-
-
 
     @Published var searchText: String = ""
 
@@ -41,72 +40,15 @@ class HomeViewModel: ObservableObject {
         calculateStatictis()
         
         guard let parameters = statisticDataService.myParameters.first else { return }
+        
         myParameters = [MyParametersModel(gender: parameters.gender ?? "",
                                          activity: parameters.activity ?? "",
                                          height: parameters.height,
                                          age: CGFloat(parameters.age),
                                          weight: CGFloat(parameters.weight),
                                          goal: parameters.goal ?? "")]
-        
-        /*
-        productDataService.$allProducts
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] returnedProducts in
-                self?.allProducts = returnedProducts
-            }
-            .store(in: &cancellables)
-        */
-        
-        //allProducts = allProductData()
-                
-//        $searchText
-//            .combineLatest(productDataService.$allProducts)
-//            .map {
-//                guard self.searchText.isEmpty else {
-//                    return self.allProducts
-//                }
-//
-//                let lowecasedText = $0.lowercased()
-//
-//                return self.allProducts.filter { product in
-//                    return product.name.lowercased().contains(lowecasedText)
-//                }
-//            .map(filterProducts)
-//            .sink { [weak self] returnedProducts in
-//                self?.allProducts = returnedProducts
-//            }
-        
-        
-        
-        $searchText
-        //productDataService.
-//            .combineLatest(productDataService.$allProducts)
-//            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-//            .map(filterProducts)
-//            .sink { [weak self] returnedProducts in
-//                self?.allProducts = returnedProducts
-//            }
-//            .store(in: &cancellables)
-        
-//
-//        // updates coins
-//        c
-//            .combineLatest(coinDataService.$allCoins)
-//            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main) // waiting 0.5 sec for launch next code
-//            .map(filterCoins)
-//            .sink { [weak self] returnedCoins in
-//                self?.allCoins = returnedCoins
-//            }
-//            .store(in: &cancellables)
-//z
-//        // updates market data
-//        marketDataService.$marketData
-//            .map(mapGlobalMarketData)
-//            .sink { [weak self] returnedStats in
-//                self?.ststistics = returnedStats
-//            }
-//            .store(in: &cancellables)
     }
+    
     private func filter(text: String, products: [ProductModel]) -> [ProductModel] {
         guard !text.isEmpty else {
             return products
@@ -120,20 +62,19 @@ class HomeViewModel: ObservableObject {
     }
     
     func removeAllData() {
+        
         productDataService.deleteAllData("MyProducts")
-        statisticDataService.deleteAllData("DaysProducts")
-        statisticDataService.deleteAllData("DayStatistics")
-        statisticDataService.deleteAllData("MyParameters")
-        statisticDataService.deleteAllData("StatisticsEntity")
-        statisticDataService.deleteAllData("TotalStatistics")
-        statisticDataService.deleteAllData("DaysProducts")
+
+        ["DaysProducts", "DayStatistics", "MyParameters", "StatisticsEntity", "TotalStatistics"].forEach {
+            statisticDataService.deleteAllData($0)
+        }
     }
     
     func calculateStatictis() {
         guard let totalRatio = statisticDataService.totalStatistics.first else { return }
         
         var dayCalories: Double = 0
-        var dayProductsMap: [ProductModel] = []
+        var dayProductsMap: [EatenProduct] = []
 
 
         statisticDataService.daysProducts.forEach { dayProduct in
@@ -141,14 +82,24 @@ class HomeViewModel: ObservableObject {
             if let currentProduct = productDataService.allProducts.first(where: { $0.name == dayProduct.name }) {
                 
                 let calloriesOfOneGramm = currentProduct.calories / 100
+                
                 dayCalories += (dayProduct.gram * calloriesOfOneGramm)
                 
-                dayProductsMap.append(ProductModel(name: currentProduct.name ?? "",
-                                                  carbohydrates: calloriesOfOneGramm * dayProduct.gram,
-                                                  protein: (currentProduct.protein / 100) * dayProduct.gram,
-                                                  fat: (currentProduct.fat / 100) * dayProduct.gram,
-                                                  calories: (currentProduct.calories / 100) * dayProduct.gram,
-                                                  type: ""))
+                let product = ProductModel(name: currentProduct.name ,
+                                     carbohydrates: calloriesOfOneGramm * dayProduct.gram,
+                                     protein: (currentProduct.protein / 100) * dayProduct.gram,
+                                     fat: (currentProduct.fat / 100) * dayProduct.gram,
+                                     calories: (currentProduct.calories / 100) * dayProduct.gram,
+                                     type: "")
+          
+                dayProductsMap.append(EatenProduct(name: currentProduct.name,
+                                                   date: dayProduct.date ?? Date(),
+                                                   gram: dayProduct.gram,
+                                                   carbohydrates: calloriesOfOneGramm * dayProduct.gram,
+                                                   protein: (currentProduct.protein / 100) * dayProduct.gram,
+                                                   fat: (currentProduct.fat / 100) * dayProduct.gram,
+                                                   calories: (currentProduct.calories / 100) * dayProduct.gram,
+                                                   type: currentProduct.type))
                 
             }
         }
@@ -159,12 +110,8 @@ class HomeViewModel: ObservableObject {
         ststistics = buildStatisticData(model: NutritionDataModel(normCalories: normCalories,
                                                                              currentCalories: dayCalories,
                                                                              remainderCalories: remainderCalories,
-                                                                             other: 43432))
-        
-        
-        
-        
-        allProductsTodayModel = dayProductsMap
+                                                                             other: 0000))
+        allProductsToday = dayProductsMap
     }
         
     private func buildStatisticData(model: NutritionDataModel?) -> [StatisticModel] {
@@ -173,10 +120,10 @@ class HomeViewModel: ObservableObject {
         guard let data = model else {
             return stats
         }
-        
-        let marketCap = StatisticModel(title: "Norm", value: String(data.normCalories))
-        let volume = StatisticModel(title: "Current", value: String(data.currentCalories))
-        let btcDominance = StatisticModel(title: "Remainder", value: String(data.remainderCalories))
+
+        let marketCap = StatisticModel(title: "Norm", value: String(format:"%.0f", data.normCalories))
+        let volume = StatisticModel(title: "Current", value: String(format:"%.0f", data.currentCalories))
+        let btcDominance = StatisticModel(title: "Remainder", value: String(format:"%.0f", data.remainderCalories))
         let portfolio = StatisticModel(title: "Portfolio Value", value: "$0.00", percentageChange: 0)
         stats.append(contentsOf: [
             marketCap, volume, btcDominance, portfolio
@@ -223,9 +170,8 @@ class HomeViewModel: ObservableObject {
     }
     
     func calulateFPC(_ calories: CGFloat) -> FPC {
-        let fat = (0.3 * calories) / 9
-        let protein = (0.3 * calories) / 4
-        let carbohydrates = (0.4 * calories) / 4
-        return FPC(fat: fat, protein: protein, carbohydrates: carbohydrates)
+        FPC(fat: (0.3 * calories) / 9,
+            protein: (0.3 * calories) / 4,
+            carbohydrates: (0.4 * calories) / 4)
     }
 }

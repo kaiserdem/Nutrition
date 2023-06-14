@@ -90,14 +90,17 @@ struct ParametersView: View {
                                                                         goal: selectedGoal))
                     
                     let fpc = vm.calulateFPC(calories)
+                    print(fpc)
+                    print("calories: \(calories)")
                     
                     
-                    
+                    /// update total statictic
                     vm.updateTotalFPCRatio(FPCRatio(calories: calories,
                                                      protein: fpc.protein,
                                                      fat: fpc.fat,
                                                      carbohydrates: fpc.carbohydrates))
                     
+                    ///
                     vm.updateMyParameters(MyParametersModel(gender: selectedGender.title,
                                                             activity: selectedActivity.title,
                                                             height: CGFloat(selectedHeight!),
@@ -108,10 +111,6 @@ struct ParametersView: View {
                                     
                     isPresented = false
 
-
-                    //UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-
-                    
                 } label: {
                     Text("Save")
                 }

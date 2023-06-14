@@ -9,12 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject private var vm: HomeViewModel
+    @ObservedObject private var vm = HomeViewModel()
     @State private var showAddMeal: Bool = false
     @State private var showSetParameters: Bool = false
     @State private var showAddMealView: Bool = false
     @State private var showNewProductView: Bool = false
-
     
     var body: some View {
             ZStack {
@@ -30,42 +29,39 @@ struct HomeView: View {
                 
                 VStack {
                     homeHeader
-                    Button {
-                        vm.removeAllData()
-                    } label: {
-                        Text("Clear all data")
-                    }
-                    
-                    if !showAddMeal {
-                        HomeStatsView(showPortfolio: $showAddMeal)
-                            .transition(.move(edge: .leading))
+                    Text(!showAddMeal ? "Calories" : "Search product")
+                        .font(!showAddMeal ? .title2 : .title2)
+                        .fontWeight(.medium)
+                        .foregroundColor(Color.theme.primary)
+                        .font(.system(size: 26, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .center)
+            
 
-                        Spacer(minLength: 10)
-                        
-                        Text(!showAddMeal ? "My ete today" : "History")
-                            .font(!showAddMeal ? .title : .title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color.theme.primary)
-                            .animation(.none)
-                        
-                        allProductsTodayList
-                            .transition(.move(edge: .leading))
+                    if !showAddMeal {
+                        VStack {
+                            HomeStatsView(showPortfolio: $showAddMeal)
+
+                            Text(!showAddMeal ? "My ete today" : "History")
+                                .font(!showAddMeal ? .title3 : .title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(Color.theme.primary)
+
+                            allProductsTodayList
+                        }
+                        .transition(.move(edge: .leading))
 
                     } else {
-                        SearchBarView(searchText: $vm.searchText)
-                            .transition(.move(edge: .trailing))
-                        
-                        Spacer(minLength: 10)
-                        
-                        Text(!showAddMeal ? "My ete today" : "History")
-                            .font(!showAddMeal ? .title : .title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color.theme.primary)
-                            .animation(.none)
-                        
-                        allProductsList
-                            .transition(.move(edge: .trailing))
-                        
+                        VStack {
+                            SearchBarView(searchText: $vm.searchText)
+                                            
+                            Text(!showAddMeal ? "My ete today" : "History")
+                                .font(!showAddMeal ? .title3 : .title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(Color.theme.primary)
+                            
+                            allProductsList
+                        }
+                        .transition(.move(edge: .trailing))
                     }
                 }
             }
@@ -110,7 +106,9 @@ extension HomeView {
                     }
                 }
         }
-        .padding(.horizontal)
+        //.padding(sides: [.left, .right], value: 10)
+
+        //.padding(.horizontal)
     }
     
     private var allProductsList: some View {
@@ -125,8 +123,8 @@ extension HomeView {
     
     private var allProductsTodayList: some View {
         List {
-            ForEach(vm.allProductsTodayModel) { product in
-                ProductRowView(product: product)
+            ForEach(vm.allProductsToday) { product in
+                ProductRowPreviewView(product: product)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
         }
