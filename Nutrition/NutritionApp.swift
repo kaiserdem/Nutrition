@@ -16,7 +16,7 @@ struct NutritionApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                HomeView()
+                MainTabBar()
                     .navigationBarHidden(true)
             }
             .environmentObject(vm)

@@ -17,8 +17,6 @@ struct ProductRowView: View {
             HStack(spacing: 0) {
                 leftColumn
                 Spacer()
-    //            if showHoldingsColumn { centerColumn }
-    //            rightColumn
             }
             .font(.subheadline)
         }
@@ -46,7 +44,7 @@ extension ProductRowView {
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundColor(Color.primary)
-            Text("белок: \(String(format:"%.1f", product.protein)) углеводы: \(String(format:"%.1f",product.carbohydrates)), жир: \(String(format:"%.1f",product.fat)) калорийность: \(String(format:"%.1f",product.calories))")
+            Text("белок: \(String(format:"%.0f", product.protein)), углеводы: \(String(format:"%.0f",product.carbohydrates)), жир: \(String(format:"%.0f",product.fat)), калорийность: \(String(format:"%.0f",product.calories))")
                 .font(.caption)
                 .foregroundColor(Color.gray)
                 .frame(minWidth: 30)

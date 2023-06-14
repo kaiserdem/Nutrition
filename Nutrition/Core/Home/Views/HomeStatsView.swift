@@ -20,13 +20,12 @@ struct HomeStatsView: View {
     @Binding var showPortfolio: Bool
     
     var body: some View {
-        
+
         HStack {
             ForEach(vm.ststistics) { stat in
-                                
                 
-                StatisticView(stat: statistic(stat), isPresentedAdditioinal: needAdditionalView(stat))
-                    .frame(width: UIScreen.main.bounds.width / 3)
+                StatisticView(stat: buildStatistic(stat), isPresentedAdditioinal: isExcessCalories(stat))
+                    .frame(width: UIScreen.main.bounds.width / 3, height: 56)
             }
         }
         .background(Color.theme.grayDoubleLite)
@@ -34,34 +33,23 @@ struct HomeStatsView: View {
         .frame(width: UIScreen.main.bounds.width, alignment: showPortfolio ? .trailing : .leading)
     }
     
-    func setExtraValue(_ stat: StatisticModel) -> Double {
-        if stat.title == StatisticType.remainder.rawValue {
+    func excessCalories(_ stat: StatisticModel) -> Double {
+        if stat.title == StatisticType.remainder.rawValue  {
             
-            let a = vm.ststistics.first { $0.title == StatisticType.current.rawValue }
-            let current: Double = Double(a!.value) ?? .zero
-            let norm: Double = Double(stat.value) ?? .zero
-            let extra = current - norm
-            print(extra)
-            return extra
+            let total = Double(vm.ststistics.first {
+                $0.title == StatisticType.current.rawValue
+            }?.value ?? "") ?? .zero
+            
+            return (Double(stat.value) ?? .zero) + total
         }
         return Double()
     }
     
-    private func statistic(_ stat: StatisticModel) -> StatisticModel {
-        
-        if needAdditionalView(stat) {
-            
-            let value: String = String(setExtraValue(stat))
-            
-            return StatisticModel(title: stat.title, value: value)
-            
-        } else {
-            return stat
-        }
-        
+    private func buildStatistic(_ stat: StatisticModel) -> StatisticModel {
+        isExcessCalories(stat) ? StatisticModel(title: stat.title, value: String(excessCalories(stat))) : stat
     }
     
-    func needAdditionalView(_ stat: StatisticModel) -> Bool {
+    private func isExcessCalories(_ stat: StatisticModel) -> Bool {
         if stat.title == StatisticType.remainder.rawValue {
             let a = Double(stat.value) ?? .zero
             return a <= 0

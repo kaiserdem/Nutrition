@@ -11,26 +11,26 @@ struct StatisticView: View {
     
     let stat: StatisticModel
     @State var isPresentedAdditioinal: Bool
-
+    
+    //String(format:"%.0f",stat.value)
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(stat.title)
+            Text(!isPresentedAdditioinal ? stat.title : "Excess calories")
                 .font(.caption)
                 .foregroundColor(Color.black)
-            Text(isPresentedAdditioinal ? stat.value : "0")
-                .font(.headline)
-                .foregroundColor(Color.blue)
-            
-            
-            if isPresentedAdditioinal {
+            if !isPresentedAdditioinal {
+                Text(stat.value)
+                    .font(.headline)
+                    .foregroundColor(Color.blue)
+            } else {
                 HStack(spacing: 4) {
                     
                     Image(systemName: "triangle.fill")
                         .font(.caption2)
                         .rotationEffect(Angle(degrees: (stat.percentageChange ?? 0) >= 0 ? 0: 180))
                     Text(stat.value)
-                        .font(.caption)
-                        .bold()
+                        .font(.headline)
                 }
                 .foregroundColor(Color.red)
                 .opacity(1)

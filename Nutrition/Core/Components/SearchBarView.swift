@@ -15,7 +15,7 @@ struct SearchBarView: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(
-                    searchText.isEmpty ? Color.white : Color.white)
+                    searchText.isEmpty ? Color.primary : Color.primary)
             
             TextField("Search by name or symbol...", text: $searchText)
                 .foregroundColor(Color.white)
@@ -36,10 +36,11 @@ struct SearchBarView: View {
         .padding()
         .background(
         RoundedRectangle(cornerRadius: 25)
-            .fill(Color.theme.primary)
+            .fill(Color.theme.grayDoubleLite)
             .shadow(color: Color.theme.gray.opacity(0.15), radius: 10)
         )
-        .padding()
+        .padding(sides: [.left, .right], value: 10)
+
     }
 }
 
@@ -57,3 +58,4 @@ struct SearchBarView_Previews: PreviewProvider {
         }
     }
 }
+

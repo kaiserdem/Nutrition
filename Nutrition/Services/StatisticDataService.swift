@@ -34,8 +34,8 @@ class StatisticDataService {
             self.getTotalStatistics()
             self.getDayStatistics()
             self.getDaysProducts()
-
         }
+        debugPrint()
     }
     
     // MARK: - Get data
@@ -50,63 +50,53 @@ class StatisticDataService {
         }
     }
     
+    /// fpc of day
     private func getDayStatistics() {
         let request = NSFetchRequest<DayStatistics>(entityName: dayStatisticEntityName)
         
         do {
             dayStatistics = try container.viewContext.fetch(request)
+            
+            print(dayStatistics)
         } catch let error {
             print("Error fetching Day Statistic Entities. \(error)")
         }
     }
     
+    /// main statistic by calculations of my parameters
     private func getTotalStatistics() {
         let request = NSFetchRequest<TotalStatistics>(entityName: totalStatisticEntityName)
         
         do {
             totalStatistics = try container.viewContext.fetch(request)
+            print(totalStatistics)
         } catch let error {
             print("Error fetching Total Statistic Entities. \(error)")
         }
     }
-    
+    /// products eaten today
     private func getDaysProducts() {
         daysProducts.removeAll()
         
         let request = NSFetchRequest<DaysProducts>(entityName: daysProductsEntityName)
         
         do {
-
             let allTimesProducts = try container.viewContext.fetch(request)
-            //print(allTimesProducts.count)
             
             allTimesProducts.forEach {
-                
                 let dateString: String = $0.date!.toString(dateFormat: "yyyy-MM-dd")
-                //print(dateString)
-                
                 let today = Date().toString(dateFormat: "yyyy-MM-dd")
-                //print(today)
                 
-                
-                if dateString == today {
-                    daysProducts.append($0)
-                }
-                
-                
-                
-                //print($0.id, $0.gram, $0.date)
+                if dateString == today { daysProducts.append($0) }
             }
             
-            //print(daysProducts.count)
-
         } catch let error {
             print("Error fetching Days Products Entities. \(error)")
         }
     }
         
     
-    // MARK: - Update data
+    // MARK: - Update, save of data
     
     func updateTotalRatioFPC(_ total: FPCRatio) {
         
@@ -169,6 +159,26 @@ class StatisticDataService {
     }
     
     
+    private func save() {
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("Error saving to Core Data. \(error)")
+        }
+    }
+    
+    private func applyChanges() {
+        save()
+        getDayStatistics()
+        getMyParameters()
+        getTotalStatistics()
+        getDaysProducts()
+        
+        debugPrint()
+    }
+    
+    // MARK: - Remove data
+    
     private func removeTotalStatistics(_ entity: TotalStatistics) {
         container.viewContext.delete(entity)
         applyChanges()
@@ -187,12 +197,15 @@ class StatisticDataService {
     func deleteAllData(_ entity: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         fetchRequest.returnsObjectsAsFaults = false
+        
         do {
             let results = try container.viewContext.fetch(fetchRequest)
+            
             for object in results {
                 guard let objectData = object as? NSManagedObject else {continue}
                 container.viewContext.delete(objectData)
             }
+            
         } catch let error {
             print("Detele all data in \(entity) error :", error)
         }
@@ -200,41 +213,10 @@ class StatisticDataService {
         applyChanges()
     }
     
-    private func save() {
-        do {
-            try container.viewContext.save()
-        } catch let error {
-            print("Error saving to Core Data. \(error)")
-        }
+    private func debugPrint() {
+        print("myParameters \(myParameters.count)")
+        print("totalStatistics \(totalStatistics.count)")
+        print("dayStatistics \(dayStatistics.count)")
+        print("daysProducts \(daysProducts.count)")
     }
-    
-    private func applyChanges() {
-        save()
-        getDayStatistics()
-        getMyParameters()
-        getTotalStatistics()
-        getDaysProducts()
-    }
-}
-
-extension DateFormatter {
-    convenience init(dateFormat: String, timeZoneUTC: Bool = false) {
-        self.init()
-        self.dateFormat = dateFormat
-        if timeZoneUTC {
-            self.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        }
-    }
-}
-
-
-extension Date
-{
-    func toString( dateFormat format  : String ) -> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
-
 }

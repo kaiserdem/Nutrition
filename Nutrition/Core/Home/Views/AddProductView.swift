@@ -36,7 +36,6 @@ struct AddProductView: View {
                         
                     }
                 }
-                //Spacer(minLength: 30)
                 Form {
                     Section {
                         Button(action: {
