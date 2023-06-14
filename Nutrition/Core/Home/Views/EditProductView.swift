@@ -10,6 +10,7 @@ import SwiftUI
 struct EditProductView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var vm: HomeViewModel
 
     @State private var selectedDate: String
     @State private var selectedNumberUnits: String
@@ -92,7 +93,9 @@ struct EditProductView: View {
                 // save update data of product
             }
             NutritionButton(title: "DELETE", disabled: false, backgroundColor: .red, foregroundColor: .white) {
-                // remove product
+                
+                #warning("need to implement storage of products from firebase, to have a productId to search for a product by id")
+                //vm.removeDaysProducts(DaysProducts)
             }
             
             Spacer()
