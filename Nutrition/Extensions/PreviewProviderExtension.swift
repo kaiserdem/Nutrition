@@ -25,7 +25,7 @@ class DeveloperPreview {
     let state2 = StatisticModel(title: "Total Value", value: "$1.23Tr")
     let state3 = StatisticModel(title: "Portfolio Value", value: "$50.4k", percentageChange: -12.34)
     
-    let product = ProductModel(name: "Арахис", carbohydrates: 26.2, protein: 45.3, fat: 9.9, calories: 555, type: "")
+    let product = ProductModel(name: "Арахис", carbohydrates: 26.2, protein: 45.3, fat: 9.9, calories: 555, type: "", defaultPortion: 30)
     let editProduct = EatenProduct(name: "Арахис", date: Date(), gram: 533, carbohydrates: 54, protein: 32, fat: 54, calories: 543, type: "rrrr")
 }
 

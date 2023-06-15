@@ -33,7 +33,7 @@ enum TypeOfProduct : String, CaseIterable {
         case .fruits:
             return "Фрукты"
         case .berries:
-            return "ягоды"
+            return "Ягоды"
         case .nuts:
             return "Орехи"
         case .dairyProducts:
