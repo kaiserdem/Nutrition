@@ -14,11 +14,13 @@ enum TypeOfProduct : String, CaseIterable {
     case fruits = "Fruits"
     case berries = "Berries"
     case nuts = "Nuts"
+    case driedFruits = "Dried fruits"
     case dairyProducts = "Dairy products"
     case desserts = "Desserts"
     case sweets = "Sweets"
     case softDrinks = "Soft drinks"
     case alcohol = "Alcohol"
+    case groats = "Groats"
     case sportNutrition = "Sport Nutrition"
     case none = "Not chosen"
 
@@ -36,6 +38,8 @@ enum TypeOfProduct : String, CaseIterable {
             return "Ягоды"
         case .nuts:
             return "Орехи"
+        case .driedFruits:
+            return "Сухофрукты"
         case .dairyProducts:
             return "Молочные продукты"
         case .desserts:
@@ -46,6 +50,8 @@ enum TypeOfProduct : String, CaseIterable {
             return "Безалкогольные напитки"
         case .alcohol:
             return "Алкоголь"
+        case .groats:
+            return "Крупа"
         case .sportNutrition:
             return "Спортивное питание"
         case .none:

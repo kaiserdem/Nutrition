@@ -35,7 +35,7 @@ class StatisticDataService {
             self.getDayStatistics()
             self.getDaysProducts()
         }
-        debugPrint()
+        //debugPrint()
     }
     
     // MARK: - Get data

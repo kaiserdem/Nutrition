@@ -19,6 +19,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var searchText: String = ""
 
+    private let firebaseDataService = FirebaseDataService()
     private let statisticDataService = StatisticDataService()
     private let productDataService = ProductDataService()
     private var cancellables = Set<AnyCancellable>()
@@ -31,6 +32,7 @@ class HomeViewModel: ObservableObject {
         
         $searchText
             .combineLatest(productDataService.$allProducts)
+            //.combineLatest(firebaseDataService.$products)
             .map(filter)
             .sink { [weak self] returnedProducts in
                 self?.allProducts = returnedProducts
