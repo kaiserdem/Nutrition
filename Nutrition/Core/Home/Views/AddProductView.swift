@@ -22,9 +22,9 @@ struct AddProductView: View {
                     Section {
                         VStack {
                             
-                            Text("data FPC calorie content per 100 grams of product")
+                            Text("Data FPC calorie content per 100 grams of product")
                                 .font(.footnote)
-                            Spacer(minLength: 20)
+                            //Spacer(minLength: 20)
                             
                             
                             ratio
@@ -39,6 +39,12 @@ struct AddProductView: View {
                 Form {
                     Section {
                         Button(action: {
+                            
+                            if selectedWeight.isEmpty {
+                                return
+                            }
+                            
+                            
                             vm.updateDaysProducts(DaysProductsModel(productId: product.id, gram: Double(selectedWeight) ?? .zero, date: Date.now, name: product.name))
                             dismiss()
                         }, label: {

@@ -10,7 +10,7 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
-    @Published var ststistics: [StatisticModel] = []
+    @Published var ststistics: [StatisticModel] = [] // @Published наюлдвєм із іншого файлу
     @Published var allProducts: [ProductModel] = []
     @Published var allProductsToday: [EatenProduct] = []
     @Published var dayProductsWithData: [(ProductModel, DaysProductsModel)] = []
@@ -19,6 +19,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var searchText: String = ""
 
+    private let firebaseDataService = FirebaseDataService()
     private let statisticDataService = StatisticDataService()
     private let productDataService = ProductDataService()
     private var cancellables = Set<AnyCancellable>()
@@ -31,6 +32,7 @@ class HomeViewModel: ObservableObject {
         
         $searchText
             .combineLatest(productDataService.$allProducts)
+            //.combineLatest(firebaseDataService.$products)
             .map(filter)
             .sink { [weak self] returnedProducts in
                 self?.allProducts = returnedProducts
@@ -84,13 +86,6 @@ class HomeViewModel: ObservableObject {
                 let calloriesOfOneGramm = currentProduct.calories / 100
                 
                 dayCalories += (dayProduct.gram * calloriesOfOneGramm)
-                
-                let product = ProductModel(name: currentProduct.name ,
-                                     carbohydrates: calloriesOfOneGramm * dayProduct.gram,
-                                     protein: (currentProduct.protein / 100) * dayProduct.gram,
-                                     fat: (currentProduct.fat / 100) * dayProduct.gram,
-                                     calories: (currentProduct.calories / 100) * dayProduct.gram,
-                                     type: "")
           
                 dayProductsMap.append(EatenProduct(name: currentProduct.name,
                                                    date: dayProduct.date ?? Date(),
@@ -117,17 +112,13 @@ class HomeViewModel: ObservableObject {
     private func buildStatisticData(model: NutritionDataModel?) -> [StatisticModel] {
         var stats: [StatisticModel] = []
         
-        guard let data = model else {
-            return stats
-        }
+        guard let data = model else { return stats }
 
         let marketCap = StatisticModel(title: "Norm", value: String(format:"%.0f", data.normCalories))
         let volume = StatisticModel(title: "Current", value: String(format:"%.0f", data.currentCalories))
         let btcDominance = StatisticModel(title: "Remainder", value: String(format:"%.0f", data.remainderCalories))
         let portfolio = StatisticModel(title: "Portfolio Value", value: "$0.00", percentageChange: 0)
-        stats.append(contentsOf: [
-            marketCap, volume, btcDominance, portfolio
-        ])
+        stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
         return stats
     }
     
@@ -173,5 +164,9 @@ class HomeViewModel: ObservableObject {
         FPC(fat: (0.3 * calories) / 9,
             protein: (0.3 * calories) / 4,
             carbohydrates: (0.4 * calories) / 4)
+    }
+    
+    func removeDaysProducts(_ entity: DaysProducts) {
+        statisticDataService.removeDaysProducts(entity)
     }
 }

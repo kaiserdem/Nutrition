@@ -14,8 +14,8 @@
             filePath = "Nutrition/Core/Home/Views/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -46,106 +46,10 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "getTotalStatistics()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB16C117-4A7C-40BC-A4AE-C71B3DAABFF0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Services/StatisticDataService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "getTotalStatistics()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CB16C117-4A7C-40BC-A4AE-C71B3DAABFF0 - 56e6080d39402819"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nutrition.StatisticDataService.getTotalStatistics() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "510">
-               </Location>
-               <Location
-                  uuid = "CB16C117-4A7C-40BC-A4AE-C71B3DAABFF0 - 56e6080d39402819"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nutrition.StatisticDataService.getTotalStatistics() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "1047">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "994DF881-E00A-46F7-B806-569367BFDAD8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Services/StatisticDataService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "getDayStatistics()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "994DF881-E00A-46F7-B806-569367BFDAD8 - daa17742b4100b6c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nutrition.StatisticDataService.getDayStatistics() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "510">
-               </Location>
-               <Location
-                  uuid = "994DF881-E00A-46F7-B806-569367BFDAD8 - daa17742b4100b6c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nutrition.StatisticDataService.getDayStatistics() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "1047">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,8 +62,8 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "updateMyParameters(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +78,8 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "add(parameters:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,73 +94,10 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "add(ratio:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E99F3EA6-AAB2-4643-A76C-80DF53FE233A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "calculateStatictis()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E99F3EA6-AAB2-4643-A76C-80DF53FE233A - fd6744c13fdeb007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "E99F3EA6-AAB2-4643-A76C-80DF53FE233A - fd6744c13fdeb007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "460">
-               </Location>
-               <Location
-                  uuid = "E99F3EA6-AAB2-4643-A76C-80DF53FE233A - 6a7c358147421926"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.ProductModel) -&gt; Swift.Bool in closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -269,8 +110,8 @@
             filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "calculateStatictis()"
             landmarkType = "7">
          </BreakpointContent>
@@ -285,13 +126,13 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "updateTotalRatioFPC(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D918E3FC-1873-4A5E-AE31-7C0AE8F7CAF8 - 7583bb78c9d315cb"
+                  uuid = "D918E3FC-1873-4A5E-AE31-7C0AE8F7CAF8 - 7583bb78c9d315a8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -301,12 +142,12 @@
                   urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
                   offsetFromSymbolStart = "78">
                </Location>
                <Location
-                  uuid = "D918E3FC-1873-4A5E-AE31-7C0AE8F7CAF8 - 7583bb78c9d315cb"
+                  uuid = "D918E3FC-1873-4A5E-AE31-7C0AE8F7CAF8 - 7583bb78c9d315a8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -316,8 +157,8 @@
                   urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Services/StatisticDataService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
                   offsetFromSymbolStart = "181">
                </Location>
             </Locations>
@@ -333,8 +174,8 @@
             filePath = "Nutrition/Services/StatisticDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "add(ratio:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -374,22 +215,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E99EE5A8-0365-4129-A721-6EE7FCF72CC5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "calculateStatictis()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "883491E5-3B96-4D3B-8AA8-7D084EDAC92D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -397,89 +222,10 @@
             filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "calculateStatictis()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CE4CB5A-2013-4739-B634-0068A976720D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "calculateStatictis()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11846BBD-76E4-43BB-9236-C93A4158F360"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "calculateStatictis()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "11846BBD-76E4-43BB-9236-C93A4158F360 - fd6744c13fdeb007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "11846BBD-76E4-43BB-9236-C93A4158F360 - fd6744c13fdeb007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "460">
-               </Location>
-               <Location
-                  uuid = "11846BBD-76E4-43BB-9236-C93A4158F360 - 6a7c358147421926"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Nutrition.ProductModel) -&gt; Swift.Bool in closure #1 (Nutrition.DaysProducts) -&gt; () in Nutrition.HomeViewModel.calculateStatictis() -&gt; ()"
-                  moduleName = "Nutrition"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaiserdem-user/Desktop/Nutrition/Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -501,31 +247,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DE318EEB-B4BC-4D84-B232-0A31C3236C72"
+            uuid = "2D808E10-450A-4988-AF67-2384F0AC2D9E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "calculateStatictis()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D808E10-450A-4988-AF67-2384F0AC2D9E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nutrition/Core/Home/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "updateDaysProducts(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -540,10 +270,58 @@
             filePath = "Nutrition/Core/Home/Views/EditProductView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "init(selectedDate:selectedWeight:fatValue:carbohydratesValue:proteinValue:caloriesValue:typeValue:product:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A453E41B-69A7-494F-BE68-5FAC04291FE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Core/Home/Views/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "homeHeader"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D8A6BE0-BB9A-47FA-8197-489B80605F35"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Core/Home/Views/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "homeHeader"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82DA31C2-7018-42FE-BE6D-FBC80E18E48D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nutrition/Core/Home/Views/ParametersView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

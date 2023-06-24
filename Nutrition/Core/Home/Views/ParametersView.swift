@@ -108,13 +108,19 @@ struct ParametersView: View {
                                                             weight: CGFloat(truncating: weight),
                                                             goal: selectedGoal.title))
                     
-                                    
-                    isPresented = false
+                       
+                    isPresented.toggle()
 
                 } label: {
                     Text("Save")
                 }
                 
+                Button {
+                    isPresented.toggle()
+                } label: {
+                    Text("Cancel")
+                }
+
             }
             .navigationTitle("Set my parameters")
         }

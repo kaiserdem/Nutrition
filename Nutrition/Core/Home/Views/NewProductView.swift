@@ -11,6 +11,8 @@ import Combine
 struct NewProductView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
+    
+    @Binding var isPresented: Bool
 
     @State private var title = ""
     @State private var fieldValue: String = ""
@@ -95,23 +97,8 @@ struct NewProductView: View {
                 productsList
                 }
             // 5 Save
-            NutritionButton(title: segmentationSelection.titleSave, disabled: false, backgroundColor: .yellow, foregroundColor: .white) {
-                                
-                let newProduct = ProductModel(name: nameProductValue,
-                                              carbohydrates: Double(caloriesValue) ?? .zero,
-                                              protein: Double(proteinValue) ?? .zero,
-                                              fat: Double(fatValue) ?? .zero,
-                                              calories: Double(caloriesValue) ?? .zero,
-                                              type: selectedTypeOfProduct.rawValue)
-                                
-                /// add new product and add day roduct
-                vm.updateMyProducts(newProduct)
-                vm.updateDaysProducts(DaysProductsModel(productId: "",
-                                                        gram: Double(gramsValue) ?? .zero,
-                                                        date: Date.now,
-                                                        name: nameProductValue))
-                
-            }
+            save
+            cancel
             
             Spacer()
             
@@ -122,7 +109,7 @@ struct NewProductView: View {
 
 struct NewProductView_Previews: PreviewProvider {
     static var previews: some View {
-        NewProductView()
+        NewProductView(isPresented: .constant(false))
     }
 }
 
@@ -138,6 +125,51 @@ extension NewProductView {
                 .keyboardType(.numberPad)
             Text(fieldValue)
         }
+    }
+    
+    private func isFilledData()  -> Bool {
+        if let carbohydrates = Double(caloriesValue), !carbohydrates.isZero,
+           let protein = Double(proteinValue), !protein.isZero,
+           let fat = Double(fatValue), !fat.isZero,
+           let calories = Double(caloriesValue), !calories.isZero,
+           let gram = Double(gramsValue), !gram.isZero,
+           !nameProductValue.isEmpty,
+           !selectedTypeOfProduct.rawValue.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private var save: some View {
+        VStack {
+            
+            NutritionButton(title: segmentationSelection.titleSave, disabled: !isFilledData(), backgroundColor: .green, foregroundColor: .white) {
+                
+                let newProduct = ProductModel(name: nameProductValue,
+                                              carbohydrates: Double(caloriesValue) ?? .zero,
+                                              protein: Double(proteinValue) ?? .zero,
+                                              fat: Double(fatValue) ?? .zero,
+                                              calories: Double(gramsValue) ?? .zero,
+                                              type: selectedTypeOfProduct.rawValue)
+                
+                /// add new product and add day roduct
+                vm.updateMyProducts(newProduct)
+                vm.updateDaysProducts(DaysProductsModel(productId: "",
+                                                        gram: Double(gramsValue) ?? .zero,
+                                                        date: Date.now,
+                                                        name: nameProductValue))
+                
+                isPresented.toggle()
+            }
+        }
+    }
+    
+    private var cancel: some View {
+        NutritionButton(title: "Cancel", disabled: false, backgroundColor: .yellow, foregroundColor: .white) {
+            isPresented.toggle()
+        }
+
     }
 }
 

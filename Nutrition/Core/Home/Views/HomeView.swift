@@ -10,23 +10,57 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject private var vm = HomeViewModel()
+    
     @State private var showAddMeal: Bool = false
     @State private var showSetParameters: Bool = false
     @State private var showAddMealView: Bool = false
     @State private var showNewProductView: Bool = false
+    @State private var showDate: Bool = false
+    @State private var selectedDate = Date()
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
             ZStack {
                 Color.white
                 .sheet(isPresented: $showSetParameters, content:  {
-                    ParametersView(isPresented: $showAddMealView)
+                    ParametersView(isPresented: $showSetParameters)
                 })
                 
                 .sheet(isPresented: $showNewProductView, content:  {
-                    NewProductView()
+                    NewProductView(isPresented: $showNewProductView)
                 })
                 
-                
+                .sheet(isPresented: $showDate) {
+                    VStack {
+                        
+                        Spacer()
+                        
+                        NutritionButton(title: "Back to today", disabled: false, backgroundColor: .green.opacity(0.95), foregroundColor: .white) {
+                            showDate.toggle()
+                        }
+                        
+                        Spacer()
+                        
+                        DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: [.date])
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                            .onChange(of: selectedDate) { newValue in
+                                print("Name changed to \(selectedDate)!")
+                                showDate.toggle()
+                            }
+                            
+                        
+                        Spacer()
+
+                        NutritionButton(title: "Close", disabled: false, backgroundColor: .yellow, foregroundColor: .white) {
+                            showDate.toggle()
+                        }
+                        Spacer()
+
+                    }
+                        
+                }
+
                 VStack {
                     homeHeader
                     Text(!showAddMeal ? "Calories" : "Search product")
@@ -91,11 +125,18 @@ extension HomeView {
                 .background(CircleButtonAnimationView(animate: $showAddMeal))
             Spacer()
             
-            Text(showAddMeal ? "Add a meal" : "Today")
-                .font(.title)
-                .fontWeight(.heavy)
-                .foregroundColor(Color.theme.primary)
-                .animation(.none)
+            HStack {
+                Text(showAddMeal ? "Add a meal" : "Today")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color.theme.primary)
+                    .animation(.none)
+            }
+            .onTapGesture {
+                if !showAddMeal {
+                    showDate.toggle()
+                }
+            }
             Spacer()
             
             CircleButtonView(iconName: showAddMeal ? "chevron.right" : "plus")
@@ -130,5 +171,9 @@ extension HomeView {
         }
         .listStyle(PlainListStyle())
     }
+    
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+      }
 
 }

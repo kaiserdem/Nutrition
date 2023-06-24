@@ -35,7 +35,7 @@ class StatisticDataService {
             self.getDayStatistics()
             self.getDaysProducts()
         }
-        debugPrint()
+        //debugPrint()
     }
     
     // MARK: - Get data
@@ -56,8 +56,6 @@ class StatisticDataService {
         
         do {
             dayStatistics = try container.viewContext.fetch(request)
-            
-            print(dayStatistics)
         } catch let error {
             print("Error fetching Day Statistic Entities. \(error)")
         }
@@ -69,7 +67,6 @@ class StatisticDataService {
         
         do {
             totalStatistics = try container.viewContext.fetch(request)
-            print(totalStatistics)
         } catch let error {
             print("Error fetching Total Statistic Entities. \(error)")
         }
@@ -210,6 +207,11 @@ class StatisticDataService {
             print("Detele all data in \(entity) error :", error)
         }
         
+        applyChanges()
+    }
+    
+    func removeDaysProducts(_ entity: DaysProducts) {
+        container.viewContext.delete(entity)
         applyChanges()
     }
     
