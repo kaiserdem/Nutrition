@@ -10,7 +10,7 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
-    @Published var ststistics: [StatisticModel] = []
+    @Published var ststistics: [StatisticModel] = [] // @Published наюлдвєм із іншого файлу
     @Published var allProducts: [ProductModel] = []
     @Published var allProductsToday: [EatenProduct] = []
     @Published var dayProductsWithData: [(ProductModel, DaysProductsModel)] = []
